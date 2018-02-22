@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Convertor for Fun</title>
+    <link rel="stylesheet" href="ConvertorStyle.css">
+    <script src="time.js"></script>
+    <script src="weight.js"></script>
+</head>
+
+
+<body>
+    <div class="header">
+        <logo class="logo-img"></logo>
+
+    </div>
+
+    <main>
+        <section class="section-a" id="grid">
+
+        </section>
+
+
+        <!-- tabs -->
+        <section class="section-b" id="tab">
+            <ul>
+                <li>
+                    <button class="tablinks" onclick="contentDisplay(event, 'Time')" type="button">Time</button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="contentDisplay(event, 'Weight')" type="button">Weight</button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="contentDisplay(event, 'Length')" type="button">Length</button>
+                </li>
+                <li>
+                    <button class="tablinks" onclick="contentDisplay(event, 'Temperature')" type="button">Temperature</button>
+                </li>
+            </ul>
+        </section>
+
+        <!--Conversion             Time         -->
+        <div class="content" id="Time">
+            <div id="side-space"></div>
+            <div id="left-section">
+                <input id="inputValue" type="number" style="height: 50px; width: 150px; font-size: 30px; text-align: center; border: none;">
+                <br>
+                <p id="unitInput" style="margin-top: 20px; font-size: 25px;">second</p>
+                <br>
+                <select onchange="displayInputUnit()" id="Input" style="position: relative; left: -2px; top:25px;">
+                    <option value="second">second</option>
+                    <option value="minute">minute</option>
+                    <option value="hour">hour</option>
+                    <option value="day">day</option>
+                </select>
+            </div>
+            <div id="middle-section">
+                <img src="arrow.png" style="width: 30%; padding-top: 200px;">
+                <br>
+                <button type="button" id="submitBtn" onclick="timeConvert()" style="margin-top:30px;">Convert</button>
+            </div>
+            <div id="right-section">
+                <output id="outputString" style="line-height: 50px; font-size: 30px;"></output>
+                <br>
+                <p id="unitOutput" style="margin-top: 20px; font-size: 25px;">second</p>
+                <br>
+                <select onchange="displayOutputUnit()" id="Output" style="position: relative; left: -2px; top:25px;">
+                    <option value="second">second</option>
+                    <option value="minute">minute</option>
+                    <option value="hour">hour</option>
+                    <option value="day">day</option>
+                </select>
+            </div>
+            <div id="side-space"></div>
+        </div>
+
+        <!--Conversion             Weight         -->
+        <div class="content" id="Weight">
+            <div id="side-space"></div>
+            <div id="left-section">
+                <input id="inputValue" type="number" style="height: 50px; width: 150px; font-size: 30px; text-align: center; border: none;">
+                <br>
+                <p id="unitInput2" style="margin-top: 20px; font-size: 25px;">pound</p>
+                <br>
+                <select onchange="displayInputUnit2()" id="Input2" style="position: relative; left: -2px; top:25px;">
+                    <option value="pound">pound</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="gram">gram</option>
+                    <option value="ounce">ounce</option>
+                </select>
+            </div>
+            <div id="middle-section">
+                <img src="arrow.png" style="width: 30%; padding-top: 200px;">
+                <br>
+                <button type="button" id="submitBtn" onclick="weightConvert()" style="margin-top:30px;">Convert</button>
+            </div>
+            <div id="right-section">
+                <output id="outputString" style="line-height: 50px; font-size: 30px;"></output>
+                <br>
+                <p id="unitOutput2" style="margin-top: 20px; font-size: 25px;">pound</p>
+                <br>
+                <select onchange="displayOutputUnit2()" id="Output2" style="position: relative; left: -2px; top:25px;">
+                    <option value="pound">pound</option>
+                    <option value="kilogram">kilogram</option>
+                    <option value="gram">gram</option>
+                    <option value="ounce">ounce</option>
+                </select>
+            </div>
+            <div id="side-space"></div>
+        </div>
+
+
+
+
+
+
+
+    </main>
+    <script>
+        function contentDisplay(evt, tabContent) {
+            document.getElementById("outputString").innerHTML = "";
+            var i, content, tablinks;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) {
+                content[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+            document.getElementById(tabContent).style.display = "flex";
+            evt.currentTarget.className += " active";
+        }
+
+        function displayInputUnit() {
+            document.getElementById("unitInput").innerHTML = document.getElementById("Input").value;
+        }
+
+        function displayOutputUnit() {
+            document.getElementById("unitOutput").innerHTML = document.getElementById("Output").value;
+        }
+
+        function timeConvert() {
+            var x = document.getElementById("Input").selectedIndex;
+            var y = document.getElementById("Output").selectedIndex;
+            if (x == y) {
+                sameToSame();
+            } else if (x == 0 && y == 1) {
+                secToMin();
+            } else if (x == 0 && y == 2) {
+                secToHour();
+            } else if (x == 0 && y == 3) {
+                secToDay();
+            } else if (x == 1 && y == 0) {
+                minToSec();
+            } else if (x == 1 && y == 2) {
+                minToHour();
+            } else if (x == 1 && y == 3) {
+                minToDay();
+            } else if (x == 2 && y == 0) {
+                hourToSec();
+            } else if (x == 2 && y == 1) {
+                hourToMin();
+            } else if (x == 2 && y == 3) {
+                hourToDay();
+            } else if (x == 3 && y == 0) {
+                dayToSec();
+            } else if (x == 3 && y == 1) {
+                dayToMin();
+            } else if (x == 3 && y == 2) {
+                dayToHour();
+            }
+
+        }
+
+        function sameToSame() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value;
+        }
+
+        function secToMin() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 60;
+        }
+
+        function secToHour() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 3600;
+        }
+
+        function minToSec() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 60;
+        }
+
+        function minToHour() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 60;
+        }
+
+        function hourToSec() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 3600;
+        }
+
+        function hourToMin() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 60;
+        }
+
+        function secToDay() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 84000;
+        }
+
+        function minToDay() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 1440;
+        }
+
+        function hourToDay() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value / 24;
+        }
+
+        function dayToSec() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 84000;
+        }
+
+        function dayToMin() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 1440;
+        }
+
+        function dayToHour() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 24;
+        }
+
+        function weightConvert() {
+            document.getElementById("outputString").innerHTML = document.getElementById("inputValue").value * 24;
+        }
+    </script>
+</body>
+
+</html>
