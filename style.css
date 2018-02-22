@@ -6,8 +6,12 @@
     float: right;
     text-decoration: none;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 50px;
     color: white;
+    padding-left: 15%;
+}
+#homePage:hover {
+    color: yellow;
 }
 body {
     background: rgb(31, 34, 39);
