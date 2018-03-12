@@ -14,5 +14,27 @@
         <h4>asdfsd</h4>
     </header>
     
+
+    <div class="dogContainer">
+        <div class="breed-image">
+            <img src="https://dog.ceo/api/img/maltese/n02085936_6892.jpg">
+        </div>
+        <br>
+        <a href="javascript:void(0);" class="button">Get another one</a>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script id="doggoImg">
+        function getDogs(){
+            $.getJSON("https://dog.ceo/api/breeds/image/random", function( result ) {
+                $(".breed-image").html("<img src='" + result.message + "'>");
+            });
+        }
+        $(".button").click(function(){
+            getDogs();
+        })
+        getDogs();
+    </script>
 </body>
 </html>
