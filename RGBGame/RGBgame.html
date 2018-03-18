@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RGB Guessing Game</title>
+    <link rel="stylesheet" href="rgbstyle.css" type="text/css">
+</head>
+
+<body onload="mainColor()">
+    <div id="header">
+        <h1 style="padding-top: 1em;">Welcome to RGB guessing game!</h1>
+        <h1>
+            <span style="color:red;">R</span>
+            <span style="color: green;">G</span>
+            <span style="color: blue;">B</span>
+            <span id="mainColor"></span>
+        </h1>
+    </div>
+    <div class="navbar">
+        <!-- <button onclick="unhide(), mainColor()">Play Again?</button> -->
+        <span id="outputMessage" style="color:white;">Pick a tile!</span>
+    </div>
+
+
+
+    <div class="container">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+    </div>
+
+    <div class="playModal">
+        <div class="modal-content">
+            <span id="closeBtn" onclick="unhide(), mainColor()">&times;</span>
+            <br>
+            <p style="text-align:center; font-size: 25px;">You guessed it!</p>
+            <br>
+            <div>
+                <button id="playAgain" onclick="unhide(), mainColor()" style="margin: auto; display: block;">PLAY AGAIN?</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="rgbgame.js"></script>
+</body>
+
+</html>
