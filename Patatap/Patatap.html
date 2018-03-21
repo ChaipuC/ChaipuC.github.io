@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Patatap</title>
 
+    <link rel="stylesheet" href="Patatapstyle.css" type="text/css">
+    <script src="paper-full.js" type="text/javascript"></script>
+    <script type="text/paperscript" canvas="myCanvas">
 
-    <script src="./paperjs/paper-full.js" type="text/javascript"></script>
-    <script type="text/paperscript" canvas="myCanvas"></script>
+        function onKeyDown(event){
+            var randomPoint = new Point(view.size.width, view.size.height) * Point.random();
+            var myCircle = new Path.Circle(randomPoint, 50);
+            myCircle.fillColor = 'white';
+        }
 
-    var parth = new Path();
 
 
+
+
+    </script>
 </head>
+
 <body>
     <canvas id="myCanvas" resize></canvas>
+
 </body>
+
 </html>
