@@ -15,10 +15,11 @@
             var randomPoint = new Point(view.size.width, view.size.height) * Point.random();
             var myCircle = new Path.Circle(randomPoint, 50);
             myCircle.fillColor = 'white';
+
         }
-
-
-
+        function onFrame(event){
+            myCircle.fillColor.hue += 1;
+        }        
 
 
     </script>
