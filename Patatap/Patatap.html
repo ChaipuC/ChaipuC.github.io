@@ -9,18 +9,89 @@
 
     <link rel="stylesheet" href="Patatapstyle.css" type="text/css">
     <script src="paper-full.js" type="text/javascript"></script>
+    <script src="howler.js" type="text/javascript"></script>
     <script type="text/paperscript" canvas="myCanvas">
 
+        var keyData = {
+            a: {
+                color: 'white',
+                sound = new Howl({
+                    src: ['Sounds/bubbles.mp3']
+                })
+            },
+            b: {
+                color: 'blue',
+                sound = new Howl({
+                    src: ['Sounds/clay.mp3']
+                })
+            },
+            c: {
+                color: 'red',
+                sound = new Howl({
+                    src: ['Sounds/confetti.mp3']
+                })
+            },
+            d: {
+                color: 'green',
+                sound = new Howl({
+                    src: ['Sounds/corona.mp3']
+                })
+            },
+            e: {
+                color: 'white',
+                sound = new Howl({
+                    src: ['Sounds/dotted-spiral.mp3']
+                })
+            }
+        }
+
+        <!-- var sound = new Howl({
+            src: [
+            'Sounds/flash-1.mp3',
+            'Sounds/flash-2.mp3',
+            'Sounds/flash-3.mp3',
+            'Sounds/glimmer.mp3',
+            'Sounds/moon.mp3',
+            'Sounds/pinwheel.mp3',
+            'Sounds/piston-1.mp3',
+            'Sounds/piston-2.mp3',
+            'Sounds/piston-3.mp3',
+            'Sounds/prism-1.mp3',
+            'Sounds/prism-2.mp3',
+            'Sounds/prism-3.mp3',
+            'Sounds/splits.mp3',
+            'Sounds/squiggle.mp3',
+            'Sounds/strike.mp3',
+            'Sounds/suspension.mp3',
+            'Sounds/timer.mp3',
+            'Sounds/ufo.mp3',
+            'Sounds/veil.mp3',
+            'Sounds/wipe.mp3',
+            'Sounds/zig-zag.mp3'
+            ]
+        }); -->
+        
+
+
+        var myCircle = [];
+
+        
         function onKeyDown(event){
             var randomPoint = new Point(view.size.width, view.size.height) * Point.random();
-            var myCircle = new Path.Circle(randomPoint, 50);
-            myCircle.fillColor = 'white';
+            var circleItem = new Path.Circle(randomPoint, 50);
 
+            keyData[event.key].sound.play();
+            circleItem.fillColor = keyData[event.key].color;
+            myCircle.push(circleItem);
         }
-        function onFrame(event){
-            myCircle.fillColor.hue += 1;
-        }        
 
+        function onFrame(event){
+            for (var i=0; i<myCircle.length; i++){
+                myCircle[i].fillColor.hue += 1;
+                myCircle[i].scale(.9);
+            }
+        }
+        myCircle.shift();
 
     </script>
 </head>
