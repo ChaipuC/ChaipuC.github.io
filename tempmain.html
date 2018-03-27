@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ChaipuC Homepage</title>
     <link rel="stylesheet" href="mainStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
+
 <body>
     <header id="header" class="grid">
         <div id="bg-img"></div>
         <h1 id="title">Welcome to ChaipuC's Webpage</h1>
         <h4>asdfsd</h4>
     </header>
-    
 
+
+
+    <!-- Doggo API -->
     <div class="dogContainer">
+        <p style="font-size: 30px; line-height: 20px; margin: 10px;">Dog Generator</p>
         <div class="breed-image">
             <img src="https://dog.ceo/api/img/maltese/n02085936_6892.jpg">
         </div>
         <br>
-        <a href="javascript:void(0);" class="button">Get another one</a>
+        <a href="javascript:void(0);" class="DoggoBtn">New Doggo</a>
+        <br>
+        <p style="margin: 10px;">Power by DOG.CEO</p>
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+
+    <!-- Doggo API Scripts -->
     <script id="doggoImg">
-        function getDogs(){
-            $.getJSON("https://dog.ceo/api/breeds/image/random", function( result ) {
+        function getDogs() {
+            $.getJSON("https://dog.ceo/api/breeds/image/random", function (result) {
                 $(".breed-image").html("<img src='" + result.message + "'>");
             });
         }
-        $(".button").click(function(){
+        $(".DoggoBtn").click(function () {
             getDogs();
         })
-        getDogs();
     </script>
+
+
+
+
+
 </body>
+
 </html>

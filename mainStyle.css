@@ -1,4 +1,69 @@
-.breed-image {
-    height: 300px;
-    width: auto;
+body {
+    margin: 0;
+    padding: 0;
+    background: #333;
 }
+
+#header {
+    height: 100vh;
+    color: white;   
+}
+#bg-img {
+    background: url('CoverBackground.jpg') no-repeat;
+    background-size: contain;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    opacity: .8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Dog Generator CSS */
+.dogContainer {
+    height: 380px;
+    width: 450px;
+    border: dashed salmon;
+    background: white;
+    color: black;
+    text-align: center;
+}
+.dogContainer p {
+    text-transform: uppercase;
+}
+.dogContainer img {
+    height: 250px;
+    margin: auto;
+}
+.DoggoBtn {
+    text-decoration: none;
+    background: lightblue;
+    line-height: 20px;
+    font-size: 25px;
+    padding: 0 5px;
+    border: solid 1px black;
+}
+.DoggoBtn:hover {
+    background: #08fcbf;
+    color: red;
+}
+/* Dog Generator CSS */
