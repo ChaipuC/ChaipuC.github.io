@@ -45,10 +45,27 @@ body {
     color: chocolate;
 }
 
+footer {
+    height: 200px;
+}
+#devToolList {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: #066860;
+    text-align: center;
+}
+#DTLcontent {
+}
+#otherInfo {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
 
-
-
-
+.projectList {
+    margin-top: 1em;
+}
 
 
 

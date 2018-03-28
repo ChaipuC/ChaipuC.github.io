@@ -15,16 +15,24 @@
         <div id="bg-img"></div>
         <div id="headerContent">
             <h1 id="title">Hello Stranger</h1>
-            <p>Welcome to Chai's portfolio webpage. This page is a place where I can learn, produce, and display some of my web development skills. This page will be updated from time to time with more and more projects or things I will be learning in the future. Take a look around, all the codes are provided within my GitHub repository. All my codes are for educational purpose, anyone may download any projects uploaded here by me. Have fun coding! :)</p>
-            <br> <br>
-            <a href="#">explore</a>
+            <p>Welcome to Chai's portfolio webpage. This page is a place where I can learn, produce, and display some of my
+                web development skills. This page will be updated from time to time with more and more projects or things
+                I will be learning in the future. Take a look around, all the codes are provided within my GitHub repository.
+                All my codes are for educational purpose, anyone may download any projects uploaded here by me. Have fun
+                coding! :)</p>
+            <br>
+            <br>
+            <a href="#projectContent" id="goToProj">explore</a>
         </div>
     </header>
 
-    <div id="mediaBar">
-        
+    <div class="mediaBar">
+
     </div>
 
+    <div class="projectList" id="projectContent">
+
+    </div>
 
     <!-- Doggo API -->
     <div class="dogContainer">
@@ -42,6 +50,20 @@
 
 
 
+    <footer>
+        <div id="devToolList">
+            <div id="DTLcontent">
+
+            </div>
+        </div>
+        <div id="otherInfo">
+
+        </div>
+    </footer>
+
+
+
+
     <!-- Doggo API Scripts -->
     <script id="doggoImg">
         function getDogs() {
@@ -53,7 +75,24 @@
             getDogs();
         })
     </script>
+    <script>
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
 
+                    var hash = this.hash;
+
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
 
 
 
