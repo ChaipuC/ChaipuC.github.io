@@ -4,7 +4,7 @@ body {
     background: #333;
 }
 #header {
-    height: 60vh;
+    height: 100vh;
     color: white;   
 }
 #bg-img {
@@ -19,7 +19,7 @@ body {
     top: 0;
 }
 #headerContent {
-    margin-top: 40vh;
+    padding-top: 40vh;
     text-align: center;
 }
 #headerContent h1 {
@@ -110,3 +110,24 @@ footer {
     color: red;
 }
 /* Dog Generator CSS */
+
+
+@media only screen and (max-width:500px){
+    #headerContent {
+        padding-top: 7vh;
+    }
+    #headerContent h1 {
+        font-size: 3em;
+    }
+    .dogContainer {
+        width: 100%;
+    }
+}
+@media only screen and (max-width:700px) and (min-width: 500px){
+    #headerContent {
+        padding-top: 15vh;
+    }
+    #headerContent h1 {
+        font-size: 3em;
+    }
+}
